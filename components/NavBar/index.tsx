@@ -52,7 +52,12 @@ const NavBar: FC = () => {
         {/* MOBILE HAMBURGER MENU */}
         <IconButton
           size="small"
-          className="-ml-2 md:hidden"
+          sx={{
+            marginLeft: '-0.5rem',
+            display: {
+              md: 'none',
+            },
+          }}
           onClick={handleMenuClick}
         >
           <Menu className="text-white" />
