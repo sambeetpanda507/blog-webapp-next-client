@@ -1,13 +1,11 @@
 import { FC, useState, useEffect } from 'react';
 import NavLink from './NavLink';
 import { useRouter } from 'next/router';
-import { IconButton, Box } from '@mui/material';
-import { Menu } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
 import MobileDrawer from './MobileDrawer';
 import BrandLogo from '@/public/assets/brand_logo.png';
 import Image from 'next/image';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from '@/utils/theme';
+import { MenuIcon } from '../icons';
 
 type NavLinkType = {
   name: string;
@@ -49,52 +47,40 @@ const NavBar: FC = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <nav className="bg-neutral-900 text-white py-5 md:py-0">
-        <div className="container flex items-center">
-          {/* MOBILE HAMBURGER MENU */}
-          <IconButton
-            size="small"
-            sx={{
-              marginLeft: '-0.5rem',
-              display: {
-                md: 'none',
-              },
-            }}
-            onClick={handleMenuClick}
-          >
-            <Menu className="text-white" />
-          </IconButton>
+    <nav className="bg-neutral-900 text-white py-5 md:py-0">
+      <div className="container flex items-center">
+        {/* MOBILE HAMBURGER MENU */}
+        <IconButton
+          size="small"
+          onClick={handleMenuClick}
+          className="md:hidden -ml-2"
+        >
+          <MenuIcon />
+        </IconButton>
 
-          {/* MOBILE DRAWER */}
-          <Box>
-            <MobileDrawer
-              isOpen={isDrawerOpen}
-              setIsDrawerOpen={setIsDrawerOpen}
-            />
-          </Box>
+        {/* MOBILE DRAWER */}
+        <MobileDrawer isOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
 
-          {/* LOGO */}
-          <div className="ml-2 md:ml-0">
-            <Image src={BrandLogo} height={40} width={35} alt="brand logo" />
-          </div>
-
-          {/* NAV LINKS */}
-          <ul className="md:flex gap-5 ml-auto hidden">
-            {navLinks.map((link) => {
-              return (
-                <NavLink
-                  key={link.name}
-                  name={link.name}
-                  path={link.path}
-                  isActive={link.isActive}
-                />
-              );
-            })}
-          </ul>
+        {/* LOGO */}
+        <div className="ml-2 md:ml-0">
+          <Image src={BrandLogo} height={40} width={35} alt="brand logo" />
         </div>
-      </nav>
-    </ThemeProvider>
+
+        {/* NAV LINKS */}
+        <ul className="md:flex gap-5 ml-auto hidden">
+          {navLinks.map((link) => {
+            return (
+              <NavLink
+                key={link.name}
+                name={link.name}
+                path={link.path}
+                isActive={link.isActive}
+              />
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
   );
 };
 

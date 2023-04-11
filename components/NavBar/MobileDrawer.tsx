@@ -8,8 +8,8 @@ import {
   ListItemText,
   ListItemIcon,
 } from '@mui/material';
-import { HomeRounded, InfoRounded } from '@mui/icons-material';
 import { useRouter } from 'next/router';
+import { HomeIcon, InfoIcon } from '../icons';
 
 type PropTypes = {
   isOpen: boolean;
@@ -31,10 +31,10 @@ const DrawerItem: FC<NavItemType> = (props) => {
   };
 
   return (
-    <ListItem sx={{ paddingInline: 0 }}>
+    <ListItem className="px-0">
       <ListItemButton onClick={handleItemClick}>
         <ListItemIcon>{icon}</ListItemIcon>
-        <ListItemText sx={{ textTransform: 'capitalize' }} primary={name} />
+        <ListItemText primary={name} className="capitalize" />
       </ListItemButton>
     </ListItem>
   );
@@ -45,12 +45,12 @@ const MobileDrawer: FC<PropTypes> = (props) => {
   const [navItems, setNavItems] = useState<NavItemType[]>([
     {
       path: '/',
-      icon: <HomeRounded />,
+      icon: <HomeIcon />,
       name: 'home',
     },
     {
       path: '/about',
-      icon: <InfoRounded />,
+      icon: <InfoIcon />,
       name: 'about',
     },
   ]);
@@ -62,7 +62,7 @@ const MobileDrawer: FC<PropTypes> = (props) => {
   return (
     <Drawer anchor="left" open={isOpen} onClose={handleClose}>
       <Box
-        sx={{ width: 250 }}
+        className="w-64"
         role="presentation"
         onClick={handleClose}
         onKeyDown={handleClose}
