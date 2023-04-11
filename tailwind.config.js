@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       container: {
-        padding: '10rem',
+        center: true,
+        padding: { DEFAULT: '1rem', lg: '10rem' },
       },
     },
   },

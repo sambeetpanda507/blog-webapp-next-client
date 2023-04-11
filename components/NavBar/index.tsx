@@ -1,6 +1,11 @@
 import { FC, useState, useEffect } from 'react';
 import NavLink from './NavLink';
 import { useRouter } from 'next/router';
+import { IconButton, Box } from '@mui/material';
+import { Menu } from '@mui/icons-material';
+import MobileDrawer from './MobileDrawer';
+import BrandLogo from '@/public/assets/brand_logo.png';
+import Image from 'next/image';
 
 type NavLinkType = {
   name: string;
@@ -22,6 +27,7 @@ const NavBar: FC = () => {
     },
   ]);
   const router = useRouter();
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const path = router.pathname;
@@ -36,14 +42,37 @@ const NavBar: FC = () => {
     });
   }, [router.pathname]);
 
+  const handleMenuClick = () => {
+    setIsDrawerOpen((prev) => !prev);
+  };
+
   return (
-    <nav className="bg-neutral-900 text-white">
-      <div className="container flex items-center mx-auto">
+    <nav className="bg-neutral-900 text-white py-5 md:py-0">
+      <div className="container flex items-center">
+        {/* MOBILE HAMBURGER MENU */}
+        <IconButton
+          size="small"
+          className="-ml-2 md:hidden"
+          onClick={handleMenuClick}
+        >
+          <Menu className="text-white" />
+        </IconButton>
+
+        {/* MOBILE DRAWER */}
+        <Box>
+          <MobileDrawer
+            isOpen={isDrawerOpen}
+            setIsDrawerOpen={setIsDrawerOpen}
+          />
+        </Box>
+
         {/* LOGO */}
-        <div>Logo Here</div>
+        <div className="ml-2 md:ml-0">
+          <Image src={BrandLogo} height={40} width={35} alt="brand logo" />
+        </div>
 
         {/* NAV LINKS */}
-        <ul className="flex gap-5 ml-auto">
+        <ul className="md:flex gap-5 ml-auto hidden">
           {navLinks.map((link) => {
             return (
               <NavLink
