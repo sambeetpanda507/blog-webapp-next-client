@@ -5,7 +5,7 @@ import { IconButton } from '@mui/material';
 import MobileDrawer from './MobileDrawer';
 import BrandLogo from '@/public/assets/brand_logo.png';
 import Image from 'next/image';
-import { MenuIcon } from '../icons';
+import { MenuIcon } from '../Icons';
 
 type NavLinkType = {
   name: string;
@@ -25,6 +25,11 @@ const NavBar: FC = () => {
       isActive: false,
       path: '/about',
     },
+    {
+      name: 'Author',
+      isActive: false,
+      path: '/author',
+    }
   ]);
   const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
