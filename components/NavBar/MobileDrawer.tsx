@@ -9,7 +9,7 @@ import {
   ListItemIcon,
 } from '@mui/material';
 import { useRouter } from 'next/router';
-import { HomeIcon, InfoIcon } from '../icons';
+import { HomeIcon, InfoIcon, PeopleIcon } from '../Icons';
 
 type PropTypes = {
   isOpen: boolean;
@@ -42,7 +42,7 @@ const DrawerItem: FC<NavItemType> = (props) => {
 
 const MobileDrawer: FC<PropTypes> = (props) => {
   const { isOpen, setIsDrawerOpen } = props;
-  const [navItems, setNavItems] = useState<NavItemType[]>([
+  const [navItems] = useState<NavItemType[]>([
     {
       path: '/',
       icon: <HomeIcon />,
@@ -53,6 +53,11 @@ const MobileDrawer: FC<PropTypes> = (props) => {
       icon: <InfoIcon />,
       name: 'about',
     },
+    {
+      path: '/author',
+      icon: <PeopleIcon />,
+      name: 'author',
+    }
   ]);
 
   const handleClose = () => {
