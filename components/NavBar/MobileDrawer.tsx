@@ -9,7 +9,7 @@ import {
   ListItemIcon,
 } from '@mui/material';
 import { useRouter } from 'next/router';
-import { HomeIcon, InfoIcon, PeopleIcon } from '../Icons';
+import { HomeIcon, InfoIcon, PeopleIcon } from '../icons';
 
 type PropTypes = {
   isOpen: boolean;
