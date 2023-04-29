@@ -5,7 +5,7 @@ import { IconButton } from '@mui/material';
 import MobileDrawer from './MobileDrawer';
 import BrandLogo from '@/public/assets/brand_logo.png';
 import Image from 'next/image';
-import { MenuIcon } from '../Icons';
+import { MenuIcon } from '../icons';
 
 type NavLinkType = {
   name: string;
