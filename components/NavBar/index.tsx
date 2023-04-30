@@ -1,11 +1,8 @@
 import { FC, useState, useEffect } from 'react';
 import NavLink from './NavLink';
 import { useRouter } from 'next/router';
-import { IconButton } from '@mui/material';
-import MobileDrawer from './MobileDrawer';
 import BrandLogo from '@/public/assets/brand_logo.png';
 import Image from 'next/image';
-import { MenuIcon } from '../icons';
 
 type NavLinkType = {
   name: string;
@@ -29,7 +26,7 @@ const NavBar: FC = () => {
       name: 'Author',
       isActive: false,
       path: '/author',
-    }
+    },
   ]);
   const router = useRouter();
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
@@ -55,16 +52,13 @@ const NavBar: FC = () => {
     <nav className="bg-neutral-900 text-white py-5 md:py-0">
       <div className="container flex items-center">
         {/* MOBILE HAMBURGER MENU */}
-        <IconButton
+        {/* <IconButton
           size="small"
           onClick={handleMenuClick}
           className="md:hidden -ml-2"
         >
           <MenuIcon />
-        </IconButton>
-
-        {/* MOBILE DRAWER */}
-        <MobileDrawer isOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
+        </IconButton> */}
 
         {/* LOGO */}
         <div className="ml-2 md:ml-0">
