@@ -57,7 +57,7 @@ const MobileDrawer: FC<PropType> = (props) => {
   }, [handleMenuClick]);
 
   return (
-    <div className="w-screen fixed top-0 left-0 h-screen bg-neutral-900/60 md:hidden">
+    <div className="w-screen fixed top-0 left-0 h-screen z-50 bg-neutral-900/60 md:hidden">
       {/* DRAWER CONTAINER */}
       <div
         ref={drawerContainerRef}
