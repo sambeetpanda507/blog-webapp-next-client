@@ -29,7 +29,7 @@ const LinkItem: FC<{
       className="flex items-center gap-2 mb-6 py-2 pl-1 hover:bg-slate-50/30 cursor-pointer"
       onClick={handleLinkClick}
     >
-      <Image src={icon} alt={`icon-${name}`} height={25} width={25} />
+      <Image src={icon} alt={`icon-${name}`} height={23} width={23} />
       {name}
     </li>
   );
