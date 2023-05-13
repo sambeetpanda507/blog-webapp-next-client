@@ -5,12 +5,16 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '**/*',
+      },
+      {
         hostname: 'www.free-css.com',
         port: '',
-        // pathname: '/account123/**',
-      },
+      }
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
