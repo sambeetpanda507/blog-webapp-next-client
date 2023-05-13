@@ -10,6 +10,7 @@ const nextConfig = {
         pathname: '**/*',
       },
       {
+        protocol: 'https',
         hostname: 'www.free-css.com',
         port: '',
       }
