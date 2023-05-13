@@ -9,6 +9,10 @@ const nextConfig = {
         port: '',
         pathname: '**/*',
       },
+      {
+        hostname: 'www.free-css.com',
+        port: '',
+      }
     ],
   },
 };
