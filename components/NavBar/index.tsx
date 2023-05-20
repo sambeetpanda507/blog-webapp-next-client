@@ -5,7 +5,7 @@ import BrandLogo from '@/public/assets/brand_logo.png';
 import Image from 'next/image';
 import { MenuIcon } from '../Icons';
 import HomeIcon from '@/public/assets/home_icon.png';
-import AboutIcon from '@/public/assets/about_icon.png';
+import ContactsIcon from '@/public/assets/contacts_icon.png';
 import AuthorIcon from '@/public/assets/author_icon.png';
 import { NavLinkType } from '../../types';
 import MobileDrawer from './MobileDrawer';
@@ -19,16 +19,16 @@ const NavBar: FC = () => {
       icon: HomeIcon,
     },
     {
-      name: 'About Us',
+      name: 'Authors',
       isActive: false,
-      path: '/about',
-      icon: AboutIcon,
+      path: '/authors',
+      icon: AuthorIcon,
     },
     {
-      name: 'Author',
+      name: 'Contact Us',
       isActive: false,
-      path: '/author',
-      icon: AuthorIcon,
+      path: '/contact-us',
+      icon: ContactsIcon,
     },
   ]);
   const router = useRouter();
