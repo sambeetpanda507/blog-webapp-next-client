@@ -1,5 +1,6 @@
 import { ChangeEvent, FC, useState, useEffect, useDeferredValue } from 'react';
 import SearchIcon from '../Icons/SearchIcon';
+import { TextField } from '../CustomComponents';
 
 type SearchBoxPropType = {
   isHidden: boolean;
@@ -7,7 +8,6 @@ type SearchBoxPropType = {
 
 const SearchBox: FC<SearchBoxPropType> = (props) => {
   const { isHidden } = props;
-  const [isFocused, setIsFocused] = useState<boolean>(false);
   const [search, setSearch] = useState<string>('');
 
   useEffect(() => {
@@ -22,40 +22,26 @@ const SearchBox: FC<SearchBoxPropType> = (props) => {
     };
   }, [search]);
 
-  const handleFocusIn = () => {
-    setIsFocused(true);
-  };
-
-  const handleFocusOut = () => {
-    setIsFocused(false);
-  };
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
   return (
     <div
-      className={`search-box transition-all border-b-2 ${
-        isFocused ? 'border-gray-700' : 'border-gray-400'
-      } flex gap-1 justify-between items-center md:mt-3 pt-2 pb-1 mb-2 ${
+      className={`search-box md:mt-3 pt-2 pb-1 mb-2 ${
         !isHidden && 'md:hidden'
       }`}
     >
-      <input
+      <TextField
+        htmlFor="search"
         type="text"
         name="search"
         id="search"
         value={search}
         placeholder="Type and Search..."
-        className="flex-grow outline-none border-0"
-        onFocus={handleFocusIn}
-        onBlur={handleFocusOut}
-        onChange={handleChange}
-      />
-      <SearchIcon
-        className="w-5 h-5 transition"
-        stroke={isFocused ? '#374151' : '#9ca3af'}
+        handleChange={handleChange}
+        endIcon={<SearchIcon className="w-5 h-5 transition" stroke="#374151" />}
+        size="small"
       />
     </div>
   );
