@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import UserIcon from '../Icons/UserIcon';
+import Button from './Button';
 
 const CardImgContainer: FC = () => {
   return (
@@ -55,9 +56,9 @@ const CardSummary: FC = () => {
 const ButtonGroup: FC = () => {
   return (
     <div className="button-group mt-4">
-      <button className="border-2 transition-all duration-300 border-gray-800 rounded-full py-2 px-3 md:px-4 capitalize font-semibold text-sm md:text-lg hover:text-white hover:bg-gray-800">
+      <Button variant="outlined" size="lg">
         Continue Reading
-      </button>
+      </Button>
     </div>
   );
 };

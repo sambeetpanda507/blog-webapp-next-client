@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { TextArea } from '@/components/CustomComponents/TextArea';
 import Image from 'next/image';
 import ContactUsImg from '@/public/assets/contact_us.svg';
+import Button from '@/components/CustomComponents/Button';
 
 const ContactUs: NextPage = () => {
   const [name, setName] = useState<string>('');
@@ -71,12 +72,14 @@ const ContactUs: NextPage = () => {
                 required={true}
                 handleChange={changeMsg}
               />
-              <button
+              <Button
                 type="submit"
-                className="bg-neutral-800 transition duration-200 text-white py-3 px-6 rounded-full w-full md:w-32 mt-4 hover:shadow-md"
+                variant="contained"
+                size="lg"
+                className="w-full mt-3"
               >
                 Submit
-              </button>
+              </Button>
             </form>
           </div>
           <div className="image-container flex items-center justify-center order-1">

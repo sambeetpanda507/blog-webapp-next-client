@@ -5,6 +5,8 @@ import AvatarImage from '@/public/assets/avatar.png';
 import TwitterIcon from '@/public/assets/twitter.png';
 import FacebookIcon from '@/public/assets/facebook.png';
 import PostCard from '@/components/Author/PostCard';
+import Button from '@/components/CustomComponents/Button';
+import { PeopleIcon } from '@/components/Icons';
 
 const socialSites = [
   {
@@ -21,30 +23,40 @@ const socialSites = [
 
 const author = {
   name: 'Author Name',
-  description: 'Founder of WowThemes and creator of Mediumish theme that you are currently previewing. I professionally develop premium themes, templates & scripts since the Apocalypse (2012). You can reach me out on the social links below',
+  description:
+    'Founder of WowThemes and creator of Mediumish theme that you are currently previewing. I professionally develop premium themes, templates & scripts since the Apocalypse (2012). You can reach me out on the social links below',
   avatarUrl: AvatarImage,
   socialSites: socialSites,
-}
+};
 
-const posts = [{
-  id: '2f0k3434adk8',
-  title: 'Life is worth living forever and ever',
-  details: 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
-  imgUrl: 'https://www.free-css.com/assets/files/free-css-templates/preview/page271/mediumish/assets/img/demopic/8.jpg',
-  author: {name: 'Author Name', avatarUrl: AvatarImage},
-  publishedAt: '22 July 2023',
-  readTime: 10 // in minutes
-},
-{
-  id: '90k34jn85f8',
-  title: 'Best European capitals to visit and the costs implied',
-  details: 'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
-  imgUrl: 'https://www.free-css.com/assets/files/free-css-templates/preview/page271/mediumish/assets/img/demopic/10.jpg',
-  author: {name: 'Author Name', avatarUrl: AvatarImage},
-  publishedAt: '22 July 2023',
-  readTime: 10 // in minutes
-}
-]
+const posts = [
+  {
+    id: '2f0k3434adk8',
+    title: 'Life is worth living forever and ever',
+    details:
+      'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+    imgUrl:
+      'https://www.free-css.com/assets/files/free-css-templates/preview/page271/mediumish/assets/img/demopic/8.jpg',
+    author: { name: 'Author Name', avatarUrl: AvatarImage },
+    publishedAt: '22 July 2023',
+    readTime: 10, // in minutes
+  },
+  {
+    id: '90k34jn85f8',
+    title: 'Best European capitals to visit and the costs implied',
+    details:
+      'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+    imgUrl:
+      'https://www.free-css.com/assets/files/free-css-templates/preview/page271/mediumish/assets/img/demopic/10.jpg',
+    author: { name: 'Author Name', avatarUrl: AvatarImage },
+    publishedAt: '22 July 2023',
+    readTime: 10, // in minutes
+  },
+];
+
+const handleClick = () => {
+  console.log('click');
+};
 
 const AuthorPage: NextPage = () => {
   return (
@@ -56,13 +68,12 @@ const AuthorPage: NextPage = () => {
 
       {/* PAGE CONTENT SECTION */}
       <section>
-        <AuthorCard {...author}/>
+        <AuthorCard {...author} />
 
-        <div className='my-4'>
+        <div className="my-4">
           {posts.map((post) => (
-            <PostCard key={post.id} {...post}/>
+            <PostCard key={post.id} {...post} />
           ))}
-
         </div>
       </section>
     </>
